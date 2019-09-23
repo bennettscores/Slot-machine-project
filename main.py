@@ -18,26 +18,22 @@ time.sleep(2)
 
 bet_question = input('Would you like to play slots for a$0.50 b.$1.00 or c.$2.00?')
 
-def find_bet(){
-    if bet_question = 'a'{
+def find_bet():
+    if bet_question == 'a':
         return .5
-    }
-    if bet_question = 'b'{
+    
+    if bet_question == 'b':
         return 1
-    }
-    if bet_question = 'c'{
+    
+    if bet_question == 'c':
         return 2
-    }
-}
-
-
-
+    
 
 items = [
     "Cherries", "Cherries", 
-    "Coin", "Coin", "Coin", "Coin", "Coin", "Coin", 
-    "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", 
-    "Spade", "Spade", "Spade", "Spade", "Spade", 
+    # "Coin", "Coin", "Coin", "Coin", "Coin", "Coin", 
+    # "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", "Lemon", 
+    # "Spade", "Spade", "Spade", "Spade", "Spade", 
     ]
 
 def column_one():
@@ -50,5 +46,16 @@ def column_three():
     return random.choice(items)
 
 result = f'{column_one()} {column_two()} {column_three()}'
+print( result)
 
-print(result)
+def payout():
+    if result == "Cherries Cherries Cherries":
+        print("You won the Jackpot!")
+        return 20
+    if result == "Spade Spade Spade":
+        return 5
+
+print(payout())
+print(find_bet())
+winnings = payout() * find_bet()
+print(f'You won ${winnings}')
